@@ -23,18 +23,7 @@
         <java.version>17</java.version>
     </properties>
 
-    <dependencyManagement>
-        <dependencies>
-            <dependency>
-                <groupId>org.springframework.cloud</groupId>
-                <artifactId>spring-cloud-dependencies</artifactId>
-                <version>2022.0.4</version> <!-- Compatible con Spring Boot 3.1.x -->
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
-        </dependencies>
-    </dependencyManagement>
-
+ 
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -67,10 +56,7 @@
             <version>2.2.15</version>
             <type>jar</type>
         </dependency>
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
-        </dependency>
+       
     </dependencies>
 
     <build>
