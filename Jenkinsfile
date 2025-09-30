@@ -11,7 +11,7 @@ pipeline {
     stages {
         stage('Checkout') {
      steps {
-                git branch: 'main', url: 'https://github.com/jhonnyjguevarac/servicioSaludo.git', credentialsId: 'd8e1ec9f-125f-4eab-ae89-c073185da870'
+                git branch: 'master', url: 'https://github.com/jhonnyjguevarac/servicioSaludo.git', credentialsId: 'd8e1ec9f-125f-4eab-ae89-c073185da870'
             }
         }
 
