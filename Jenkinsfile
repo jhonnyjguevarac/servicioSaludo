@@ -1,6 +1,6 @@
 pipeline {
     agent any
-   environment {
+    environment {
         PATH = "C:/Program Files/Docker/Docker/resources/bin;$PATH"
     }
     tools {
@@ -10,27 +10,30 @@ pipeline {
 
     stages {
         stage('Checkout') {
-     steps {
+            steps {
                 git branch: 'master', url: 'https://github.com/jhonnyjguevarac/servicioSaludo.git', credentialsId: 'd8e1ec9f-125f-4eab-ae89-c073185da870'
             }
         }
 
         stage('Build') {
             steps {
-                sh 'mvn clean package -DskipTests'
+                bat 'mvn clean package -DskipTests'
             }
         }
 
         stage('Docker Build') {
             steps {
-                sh 'docker build -t servicio1 .'
+                bat 'docker build -t servicio1 .'
             }
         }
 
         stage('Docker Run') {
             steps {
-                sh 'docker stop servicio1 || true && docker rm servicio1 || true'
-                sh 'docker run -d -p 8081:8081 --name servicio1 servicio1'
+                bat '''
+                    docker stop servicio1 || exit 0
+                    docker rm servicio1 || exit 0
+                    docker run -d -p 8081:8081 --name servicio1 servicio1
+                '''
             }
         }
     }
