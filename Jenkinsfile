@@ -1,7 +1,7 @@
 pipeline {
     agent any
    environment {
-        PATH = "C:\Program Files\Docker\Docker\resources\bin"
+        PATH = "C:/Program Files/Docker/Docker/resources/bin;$PATH"
     }
     tools {
         maven 'Maven3'    // Nombre EXACTO configurado en Jenkins -> Global Tool Configuration
@@ -11,7 +11,7 @@ pipeline {
     stages {
         stage('Checkout') {
      steps {
-                git branch: 'main', url: 'https://github.com/jhonnyjguevarac/servicioSaludo.git', credentialsId: 'github-credentials'
+                git branch: 'main', url: 'https://github.com/jhonnyjguevarac/servicioSaludo.git', credentialsId: 'd8e1ec9f-125f-4eab-ae89-c073185da870'
             }
         }
 
